@@ -1,0 +1,36 @@
+[user]
+	name = tasuke22
+	email = tasukesuke@gmail.com
+[core]
+  pager = delta
+	editor = nvim
+	excludesfile = /Users/daisuke/.gitignore_global
+[alias]
+	ci = commit
+	st = status
+	br = branch
+	co = checkout
+	b = branch
+	ginit = 'git add . && git commit -m "initial commit"'
+	unstage = reset HEAD
+	logo = log --oneline
+	lol = log --graph --decorate --pretty=oneline --all --abbrev-commit
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = magenta
+  deleted = red
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[commit]
+	template = /Users/daisuke/.stCommitMsg
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  syntax-theme = TwoDark
+  line-numbers = true
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none

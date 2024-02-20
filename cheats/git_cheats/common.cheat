@@ -1,0 +1,113 @@
+% git
+
+# グローバルなGitユーザー名を設定
+git config --global user.name <名前>
+
+# グローバルなGitユーザーのメールアドレスを設定
+git config --global user.email <メールアドレス>
+
+# Gitリポジトリを初期化
+git init
+
+# Gitリポジトリをクローンする
+git clone -b <ブランチ名> <リポジトリ> <クローンディレクトリ>
+
+# ブランチとサブモジュールを含む深さ1のシャローコピー
+git clone --depth=1 --no-single-branch --recurse-submodules <リポジトリ> <クローンディレクトリ>
+
+# ローカル/origin masterにupstream masterをリベースする（他の人があなたのリポジトリをクローンしていない場合に使用）
+git fetch <リモート名>
+git checkout master
+git rebase <リモート名>/master
+git fetch --unshallow origin
+git push -f origin master
+
+# ローカル/origin masterにupstream masterをマージする（他の人があなたのリポジトリをクローンしている場合に使用）
+git fetch <リモート名>
+git checkout master
+git merge <リモート名>/master
+git fetch --unshallow origin
+git push -f origin master
+
+# Gitリポジトリの利用可能なリモートを表示する
+git remote --verbose
+
+# Gitリポジトリにリモートを追加する
+git remote add <リモート名> <リモートURL>
+
+# Gitリポジトリのリモートを名前変更する
+git remote rename <旧リモート名> <新リモート名>
+
+# Gitリポジトリからリモートを削除する
+git remote remove <リモート名>
+
+# ブランチに切り替える
+git checkout <ブランチ>
+
+# Gitリポジトリの現在のステータスを表示する
+git status
+
+# ファイルの非ステージ変更を表示する
+cd <トップレベルディレクトリ>; \
+    git diff <非ステージファイル>
+
+# 単一または複数のファイルをステージする
+cd <トップレベルディレクトリ>; \
+    git add <変更ファイル>;
+
+# プロジェクト内のすべてのファイルをステージする
+git add -A
+
+# ステージしたファイルにコミットを作成する
+git commit -m "<コミットの説明>"
+
+# ステージしたファイルに日付を戻したコミットを作成する
+git commit --date="<n日前> days ago" -m "<コミットの説明>"
+
+# コミットした変更をリモートリポジトリにプッシュする
+git push -u <リモート名> <ブランチ名>
+
+# 別のブランチを上書きする形で変更をリモートリポジトリにプッシュする
+git push <リモート名> <ブランチ>:<上書きするブランチ>
+
+# ローカルブランチの変更でリモートブランチを上書きする
+git push <リモート名> <ブランチ名> -f
+
+# リモートリポジトリから変更をローカルリポジトリにプルする
+git pull --ff-only
+
+# 他のブランチの変更を現在のブランチにマージする
+git merge <ブランチ名>
+
+# 現在のコンフリクト解決プロセスを中止し、マージ前の状態を再構築しようとします。
+git merge --abort
+
+# リポジトリのコミットログを表示する
+git log
+
+# フォーマットされたリポジトリのコミットログを表示する
+git log --all --decorate --oneline --graph
+
+# すべてをクリアする
+git clean -dxf
+
+# ブランチに基づいてすべてのコミットに署名する
+git rebase master -S -f
+
+# GitHubのユーザーのすべてのオープンプルリクエストを表示する
+navi fn url::open 'https://github.com/pulls?&q=author:<ユーザー名>+is:open+is:pr'
+
+# フォークからブランチに切り替える
+git fetch origin pull/<PR番号>/head:pr/<PR番号> \
+   && git checkout pr/<PR番号>
+
+# Gitフックをスキップする
+git commit --no-verify
+
+# 現在のHEADから新しいブランチを作成する
+git checkout -b <新しいブランチ名>
+
+# ローカルリポジトリからコミットを削除する（変更を破棄する）
+git reset --hard HEAD~<コミット数>
+
+# ローカルリポジトリからコミットを削除する（変更を保持する）

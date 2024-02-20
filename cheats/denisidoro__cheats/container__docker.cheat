@@ -1,0 +1,76 @@
+% docker
+
+# イメージを削除する
+docker image rm <image_id>
+
+# ローカルイメージストアからイメージを削除する
+docker rmi <image_id>
+
+# 不要なイメージをクリーンアップする
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+
+# 強制的に不要なイメージをクリーンアップする
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc) -f
+
+# Dockerエンジンにローカルに保存されているすべてのイメージをリスト表示する
+docker images
+
+# 現在のディレクトリのDockerfileからイメージをビルドし、タグをつける
+docker build -t <image>:<version> .
+
+# レジストリからイメージをプルする
+docker pull <image>:<version>
+
+# 実行中のコンテナをSIGTERM経由で停止する
+docker stop <container_id>
+
+# 実行中のコンテナをSIGKILL経由で停止する
+docker kill <container_id>
+
+# ネットワークをリスト表示する
+docker network ls
+
+# 実行中のコンテナをリスト表示する
+docker ps
+
+# 実行中および停止したすべてのコンテナを削除する
+docker rm -f $(docker ps -aq)
+
+# コンテナ内で新しいbashプロセスを作成し、それを端末に接続する
+docker exec -it <container_id> bash
+
+# コンテナのログの最後の行を表示する
+docker logs --tail 100 <container_id> | less
+
+# コンテナのログの最後の行を表示し、そのログをフォローする
+docker logs --tail 100 <container_id> -f
+
+# 新しいネットワークを作成する
+docker network create <network_name>
+
+$ image_id: docker images --- --headers 1 --column 3
+$ container_id: docker ps --- --headers 1 --column 1
+
+
+% docker-compose
+
+# すべてのサービスのコンテナをビルドし、(再)作成し、起動し、アタッチする
+docker-compose up
+
+# すべてのサービスのコンテナをビルドし、(再)作成し、起動し、デタッチする
+docker-compose up -d
+
+# 特定のサービスのコンテナをビルドし、(再)作成し、起動し、アタッチする
+docker-compose up -d <service_name>
+
+# 特定のサービスのコンテナをビルドし、(再)作成し、起動し、デタッチする
+docker-compose up -d <service_name>
+
+# サービスのログの最後の行を表示する
+docker-compose logs --tail 100 <service_name> | less
+
+# サービスのログの最後の行を表示し、そのログをフォローする
+docker-compose logs -f --tail 100 <service_name>
+
+# コンテナを停止し、upによって作成されたコンテナとネットワークを削除する
+docker-compose down

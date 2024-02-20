@@ -1,0 +1,45 @@
+scan_timeout = 10
+
+[battery]
+disabled = true
+
+[character]
+error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = "bold blue"
+
+[aws.region_aliases]
+ap-northeast-1 = "jp"
+
+[custom.arch]
+command = "uname -m"
+style = "bold yellow"
+format = "[$output]($style)"
+
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+
+[git_branch]
+truncation_symbol = ""
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = true 
+show_always = true
+
+# language
+[nodejs]
+format = 'via [🤖 $version](bold green) '
+
+[php]
+format = 'via [🔹 $version](147 bold) '

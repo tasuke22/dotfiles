@@ -1,0 +1,37 @@
+% curl, http
+
+# GETリクエストを送信する
+curl <url>
+
+# 指定したメソッドでHTTPリクエストを送信する
+curl -X <method> <url>
+
+# HTTPリクエストを送信し、出力をファイルに保存する
+curl -X <method> <url> -o <filename>
+
+# GETリクエストを送信し、リダイレクトをたどる
+curl -L <url>
+
+# 失敗時に非ゼロのステータスコードで終了するGETリクエストを送信する
+curl --fail <url>
+
+# 認証付きのHTTPリクエストを送信する
+curl -u <username>:<password> -X <method> <url>
+
+# JSONボディを持つHTTPリクエストを送信する
+curl -X <method> <url>  -H 'Content-Type: application/json' -d '<json>'
+
+# フォームボディを持つHTTPリクエストを送信する
+curl <url> -d <bodykey>=<bodyvalue>
+
+# リクエストとレスポンスを表示するHTTPリクエストを送信する
+curl -v <url>
+
+# ファイルからボディを読み込んでHTTPリクエストを送信する
+curl -X <method> <url> --data-binary "@<file>"
+
+# カスタムヘッダーを持つHTTPリクエストを送信する
+curl -X <method> <url> -H "<headername>: <headervalue>"
+
+$ file: ls
+$ method: echo -e 'GET\nPOST\nPUT\nDELETE\nPATCH'

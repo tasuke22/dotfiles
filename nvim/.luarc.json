@@ -1,0 +1,11 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "jit",
+        "_lazygit_toggle"
+    ],
+    "diagnostics.disable": [
+        "undefined-global"
+    ],
+    "completion.autoRequire": false
+}

@@ -1,0 +1,97 @@
+% brew, cask
+
+# Homebrewを更新する
+brew update
+
+# Homebrewをアップグレードする
+brew upgrade
+
+# パッケージの情報を取得する
+brew info <package>
+
+# Caskの情報を取得する
+brew cask info <casks>
+
+# パッケージをインストールする
+brew install <package>
+
+# Caskをインストールする
+brew cask install <casks>
+
+# パッケージを再インストールする
+brew reinstall <package>
+
+# Caskを再インストールする
+brew reinstall <caskinstalled>
+
+# パッケージをアンインストールする
+brew uninstall <installed>
+
+# Caskをアンインストールする
+brew cask uninstall <caskinstalled>
+
+# パッケージを編集する
+brew edit <package>
+
+# Caskを編集する
+brew cask edit <casks>
+
+# 現在のユーザーによってインストールされたすべてのサービスをリスト表示する
+brew services list
+
+# ルートユーザーで、Homebrewによってインストールされたすべてのサービスをリスト表示する
+sudo brew services list
+
+# ログイン時に起動するように登録せずに、サービスのフォーミュラを実行する
+brew services run <brewservice>
+
+# ルートユーザーとして、サービスのフォーミュラを実行する
+sudo brew services run <brewservice>
+
+# サービスのフォーミュラを即座に開始し、ログイン時に起動するように登録する
+brew services start <brewservice>
+
+# ルートユーザーとして、サービスのフォーミュラを即座に開始し、ログイン時に起動するように登録する
+sudo brew services start <brewservice>
+
+# サービスのフォーミュラを即座に停止し、ログイン時に起動しないように登録を解除する
+brew services stop <brewservice>
+
+# ルートユーザーとして、サービスのフォーミュラを即座に停止し、ログイン時に起動しないように登録を解除する
+sudo brew services stop <brewservice>
+
+# サービスのフォーミュラを必要に応じて停止し、即座に開始し、ログイン時に起動するように登録する
+brew services restart <brewservice>
+
+# ルートユーザーとして、サービスのフォーミュラを必要に応じて停止し、即座に開始し、ログイン時に起動するように登録する
+sudo brew services restart <brewservice>
+
+# 未使用のすべてのサービスを削除する
+brew services cleanup
+
+# ルートユーザーとして、未使用のすべてのサービスを削除する
+sudo brew services cleanup
+
+# 自動クリーンアップ
+brew cleanup
+
+# フォーミュラをリンクする
+brew link <installed>
+
+# 既にプレフィックスに存在するファイルを削除しながらリンクする
+brew link --overwrite <installed>
+
+# Keg-onlyのフォーミュラをリンクできるようにする
+brew link --force <installed>
+
+# 健康チェック
+brew doctor
+
+# 権限を修正する
+sudo chown -R $(whoami):admin /usr/local
+
+$ package: brew search
+$ casks: brew search --casks
+$ installed: brew list
+$ caskinstalled: brew cask list
+$ brewservice: brew services list | awk '{if (NR>1){printf "%s\n", $1}}'

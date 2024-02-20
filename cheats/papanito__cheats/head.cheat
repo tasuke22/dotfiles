@@ -1,0 +1,10 @@
+% head
+
+# <file>の最初の10行を表示する
+head <file>
+
+# <file>の最初の<number>行を表示する
+head -n <number> <file>
+
+# <file>の最初の<number>バイトを表示する
+head -c <number> <file>

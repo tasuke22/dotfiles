@@ -1,0 +1,59 @@
+% tar
+
+# 現在のディレクトリにあるディレクトリ<directory>のためのtarファイルを作成する
+tar -cvf <archive_file>.tar <directory>
+
+# 現在のディレクトリにあるディレクトリ<directory>のためのtar.gzファイルを作成する
+$ ext: echo "tar.gz tgz"
+tar -cvzf <archive_file>.<ext> <directory>
+
+# 現在のディレクトリにあるディレクトリ<directory>のためのtar.bz2ファイルを作成する
+$ ext: echo "tar.bz2 tbz tb2"
+tar -cvfj <archive_file>.<ext> <directory>
+
+# 現在のディレクトリでファイルを展開する
+tar -xvf <archive_file>
+
+# 指定したディレクトリでファイルを展開する
+tar -xvf <archive_file>.tar -C <target_dir>
+
+# tar/tgz/tbzアーカイブ内のファイルを一覧表示する
+tar -tvf <archive_file>
+
+# tarアーカイブから特定のファイルを抽出する
+tar -xvf <archive_file>.tar <file_to_extract>
+
+# tgzアーカイブから特定のファイルを抽出する
+$ ext: echo "tar.gz tgz"
+tar -zxvf <archive_file>.<ext> <file_to_extract>
+
+# tbzアーカイブから特定のファイルを抽出する
+$ ext: echo "tar.bz2 tbz tb2"
+tar -jxvf <archive_file>.<ext> <file_to_extract>
+
+# ワイルドカードを使用してtarアーカイブから特定のファイルを抽出する
+tar -xvf <archive_file>.tar --wildcards '<wildcard_expression>'
+
+# ワイルドカードを使用してtgzアーカイブから特定のファイルを抽出する
+$ ext: echo "tar.gz tgz"
+tar -zxvf <archive_file>.<ext> --wildcards '<wildcard_expression>'
+
+# ワイルドカードを使用してtbzアーカイブから特定のファイルを抽出する
+$ ext: echo "tar.bz2 tbz tb2"
+tar -jxvf <archive_file>.<ext> --wildcards '<wildcard_expression>'
+
+# tarアーカイブにファイルやディレクトリを追加する
+$ ext: echo "tar tar.gz tgz tar.bz2 tbz tb2"
+tar -rvf <archive_file>.tar <files_to_add>
+
+# tar、tar.gz、tar.bz2アーカイブファイルを確認する
+$ ext: echo "tar tar.gz tgz tar.bz2 tbz tb2"
+tar tvfW <archive_file>.<ext>
+
+# tarファイルのサイズを確認する
+$ ext: echo "tar tar.gz tgz tar.bz2 tbz tb2"
+tar -czf <archive_file>.<ext> | wc -c
+
+# tarファイルからファイルやディレクトリを削除する
+$ ext: echo "tar tar.gz tgz tar.bz2 tbz tb2"
+tar --delete -f <archive_file>.<ext> <files_to_exclude>

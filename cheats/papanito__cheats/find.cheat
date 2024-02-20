@@ -1,0 +1,13 @@
+% find
+
+# 指定した場所でディレクトリを検索する
+find <dir> -maxdepth 1 -type d
+
+# 指定した場所でディレクトリを検索する（隠しディレクトリを除外）
+find . -maxdepth 1 -type d -not -path '*/.*' -not -path '.'
+
+# 指定したディレクトリ内のすべてのファイルを表示する（隠しファイルとディレクトリをスキップ）
+find . -not -path '*/.*'  -not -path '.'
+
+# ファイル名に特定のテキストが含まれるファイルを検索する（隠しファイルとディレクトリをスキップ）
+find . -not -path '*/.*' -type f -name '*<search text>*'

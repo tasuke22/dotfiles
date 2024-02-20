@@ -1,0 +1,218 @@
+% dns
+
+# 指定した名前サーバーにクエリを送信する
+
+dig @<dns_Server_v4> <fqdn>
+
+$ dns_server_v4: echo -e "8.8.8.8\n "
+$ dns_server_v6: echo -e "2001:4860:4860::8888\n "
+
+# レコードタイプを指定して検索する
+
+dig @<dns_Server> <fqdn> <dns_record_type>
+
+$ dns_record_type: echo -e "ALL\nA\nMX\nTXT\n "
+
+# 逆引きDNSルックアップ
+
+dig -x <ip_address>
+
+# DNSパスをトレースする
+
+dig <fqdn> +trace
+
+# digの回答サイズを調整する
+
+dig <fqdn> +short
+
+# ファイルから検索する
+
+dig -f <dns_query_file> +short
+
+# ポート番号を指定する
+
+dig @<dns_Server_v4> -p <port> <fqdn>
+
+# IPv4またはIPv6を使用する
+
+dig -6 @<dns_Server_v6> <fqdn> <dns_record_type>
+
+# すべてのDNSレコードタイプをクエリする
+
+dig <fqdn> ANY
+
+# Digの出力をカスタマイズする - すべて非表示
+
+dig <fqdn> +noall
+
+# Digの出力をカスタマイズする - 統計情報の表示
+
+dig <fqdn> +noall +stats
+
+# Digの出力をカスタマイズする - 回答のみ表示
+
+dig <fqdn> +noall +answer
+
+# ドメインのすべてのサブドメインを取得する
+
+dig @<dns_Server_v4 <fqdn> axfr
+
+# ~/.digrcファイルでデフォルトを調整する
+
+cat ~/.digrc
+
+# TCPモード
+
+dig <fqdn> +[no]vc
+
+# TCPモード、別の構文
+
+dig <fqdn> +[no]tcp
+
+# クエリのタイムアウトを設定 [5]
+
+dig <fqdn> +time=<query_time>
+
+# UDP試行回数を設定 [3]
+
+dig <fqdn> +tries=<query_tries>
+
+# UDP再試行回数を設定 [2]
+
+dig <fqdn> +retry=<query_retries>
+
+# デフォルトのドメイン名を設定する
+
+dig <fqdn> +domain=<domain_name>
+
+# EDNS0の最大UDPパケットサイズを設定する
+
+dig <fqdn> +bufsize=<bufsize>
+
+# NDOTS値を設定する
+
+dig <fqdn> +ndots=<ndots>
+
+# EDNSバージョンを設定する
+
+dig <fqdn> +edns=<edns_version>
+
+# サーチリストを使用するかどうかを設定する
+
+dig <fqdn> +[no]search
+
+# 途中結果を表示するサーチ
+
+dig <fqdn> +[no]showsearch
+
+# 同上
+
+dig <fqdn> +[no]defname
+
+# 再帰モード
+
+dig <fqdn> +[no]recurse
+
+# TC応答のためにTCPに戻さないようにする
+
+dig <fqdn> +[no]ignore
+
+# SERVFAIL時に次のサーバーを試さないようにする
+
+dig <fqdn> +[no]fail
+
+# 不正なメッセージを解析しようとしないようにする
+
+dig <fqdn> +[no]besteffort
+
+# クエリでAAフラグを設定する
+
+dig <fqdn> +[no]aaflag
+
+# 同上
+
+dig <fqdn> +[no]aaonly
+
+# クエリでADフラグを設定する
+
+dig <fqdn> +[no]adflag
+
+# クエリでCDフラグを設定する
+
+dig <fqdn> +[no]cdflag
+
+# レコードでクラスを表示するかどうかを制御する
+
+dig <fqdn> +[no]cl
+
+# コマンドラインを表示するかどうかを制御する
+
+dig <fqdn> +[no]cmd
+
+# コメント行を表示するかどうかを制御する
+
+dig <fqdn> +[no]comments
+
+# 質問を表示するかどうかを制御する
+
+dig <fqdn> +[no]question
+
+# 回答を表示するかどうかを制御する
+
+dig <fqdn> +[no]answer
+
+# 権威を表示するかどうかを制御する
+
+dig <fqdn> +[no]authority
+
+# 追加を表示するかどうかを制御する
+
+dig <fqdn> +[no]additional
+
+# 統計情報を表示するかどうかを制御する
+
+dig <fqdn> +[no]stats
+
+# 答えのショートフォームのみを表示するように制御する
+
+dig <fqdn> +[no]short
+
+# レコードでTTLを表示するかどうかを制御する
+
+dig <fqdn> +[no]ttlid
+
+# すべての表示フラグを設定またはクリアする
+
+dig <fqdn> +[no]all
+
+# 送信前に質問を表示する
+
+dig <fqdn> +[no]qr
+
+# すべての権威名前サーバーを検索する
+
+dig <fqdn> +[no]nssearch
+
+# 短い回答で応答者を識別する
+
+dig <fqdn> +[no]identify
+
+# ルートからの委任をトレースする
+
+dig <fqdn> +[no]trace
+
+# DNSSECレコードを要求する
+
+dig <fqdn> +[no]dnssec
+
+# 名前サーバーIDを要求する
+
+dig <fqdn> +[no]nsid
+
+# 拡張形式でレコードを表示する
+
+dig <fqdn> +[no]multiline
+
+# AXFRは1つのSOAレコードのみを表示する
+
+dig <fqdn> +[no]onesoa

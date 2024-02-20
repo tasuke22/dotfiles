@@ -1,0 +1,85 @@
+% npm, node, js
+
+# 新しいパッケージを初期化する
+npm init
+
+# すぐに新しいパッケージを初期化する
+npm init -y
+
+# すべての依存パッケージをインストールする
+npm install
+
+# 特定のフォルダにあるすべての依存パッケージをインストールする
+npm install --prefix <folder>
+
+# すべての開発用依存パッケージをインストールする
+npm install --save-dev
+
+# 特定のフォルダにあるすべての開発用依存パッケージをインストールする
+npm install --save-dev --prefix <folder>
+
+# 指定したパッケージをインストールする
+npm install <package_name>
+
+# 指定した開発用パッケージをインストールする
+npm install <package_name> --save-dev
+
+# 指定したパッケージをグローバルにインストールする
+npm install <package_name> -g
+
+# 特定のフォルダにパッケージをインストールする
+npm install <package_name> --prefix <folder>
+
+# 特定のフォルダに指定した開発用パッケージをインストールする
+npm install <package_name> --save-dev --prefix <folder>
+
+# スクリプトを実行する
+npm run <script>
+
+# 特定のフォルダでスクリプトを実行する
+npm run <script> --prefix <folder>
+
+$ script: node -p "Object.keys(require('./package.json').scripts).join('\n')"
+
+
+
+% yarn, node, js
+
+# 新しいパッケージを初期化する
+yarn init
+
+# すべての依存パッケージをインストールする
+yarn install
+
+# すべての開発用依存パッケージをインストールする
+yarn install --save-dev
+
+# 指定したパッケージをインストールする
+yarn add <package_name>
+
+# 指定した開発用パッケージをインストールする
+yarn add <package_name> --dev
+
+# 指定したパッケージをグローバルにインストールする
+yarn global add <package_name>
+
+# スクリプトを実行する
+yarn run <script>
+
+$ script: node -p "Object.keys(require('./package.json').scripts).join('\n')"
+
+
+
+% nvm, node, js
+
+# 特定のNodeバージョンをインストールする
+nvm install <version>
+
+# 利用可能なバージョンをリスト表示する
+nvm ls-remote
+
+# インストールされたNodeのバージョンを使用する
+nvm use <version>
+
+# Nodeのバージョンをデフォルトに設定する
+nvm alias default <version>

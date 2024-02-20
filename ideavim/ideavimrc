@@ -1,0 +1,170 @@
+let mapleader = "\<space>"
+
+"---------------action---------------
+
+nnoremap <Space>; :action Run<CR>
+nnoremap <Space><CR> :action RenameElement<CR>
+nnoremap <Space>a :action RecentFiles<CR>
+nnoremap zz :action Console.Jdbc.Execute<CR>
+nnoremap <Space>f  :action ActivateProjectToolWindow<CR>
+nnoremap <Space>nt :action NewTypeScriptFile<CR>
+nnoremap <Space>n :action NewFile<CR>
+nnoremap <Space>N :action NewDir<CR>
+nnoremap <Space>t :action ToggleLineBreakpoint<CR>
+nnoremap <Space>d :action Debug<CR>
+nnoremap <Space>h :action ShowHoverInfo<CR>
+nnoremap <Space>e :action QuickImplementations<CR>
+"nnoremap <Space>e :action RecentFiles<CR>
+nnoremap <Space>e :action ShowErrorDescription<CR>
+nnoremap gJ :action CloseAllEditorsButActive<CR>
+nnoremap tl :action GotoDeclaration<CR>
+nnoremap tL :action GotoImplementation<CR>
+nnoremap th :action Back<CR>
+nnoremap t; :action Forward<CR>
+
+nnoremap <Space>r :action Replace<CR>
+vnoremap <Space>r :action Replace<CR>
+" nnoremap <Space>R :action ReplaceInPath<CR>
+" vnoremap <Space>R :action ReplaceInPath<CR>
+
+" nnoremap <Space>f :action Find<CR>
+" vnoremap <Space>f :action Find<CR>
+"
+" nnoremap <Space>F :action FindInPath<CR>
+" vnoremap <Space>F :action FindInPath<CR>
+
+nnoremap <leader>rf :action Refactorings.QuickListPopupAction<cr>
+nnoremap <leader>i :action QuickImplementations<cr>
+nnoremap <leader>k :action QuickDocCopy<cr>
+
+nnoremap <leader>qf :action QuickFixes<cr>
+
+vnoremap <leader>rf :action Refactorings.QuickListPopupAction<cr>
+vnoremap <leader>qf :action QuickFixes<cr>
+
+" reload
+nnoremap <Space>s :source ~/.ideavimrc<CR>
+
+" editor action
+
+nnoremap <Space>u :action FindUsages<CR>
+vnoremap <Space>u :action FindUsages<CR>
+
+nnoremap <Space>l :action ReformatCode<CR>:w<CR>
+
+
+"nnoremap <Space><Space> :action CodeCompletion<CR>
+
+
+nnoremap <Space><Space> :action ShowIntentionActions<CR>
+vnoremap <Space><Space> :action ShowIntentionActions<CR>
+nnoremap <leader>b :action Vcs.RollbackChangedLines<CR>
+vnoremap <leader>b :action Vcs.RollbackChangedLines<CR>
+
+nnoremap <leader>p  :action GotoFile<CR>
+"---------------map---------------
+" コンマの後に自動的にスペースを挿入
+inoremap , ,<Space>
+inoremap <C-j> <ESC>
+nnoremap I I<Space><ESC>i
+nnoremap U <C-r>
+nnoremap J 10j
+nnoremap K 10k
+vnoremap J 10j
+vnoremap K 10k
+nnoremap gl gt
+nnoremap gh gT
+nnoremap zk zb
+nnoremap zj zt
+nnoremap gj :q<CR>
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+vnoremap v <C-v>
+vnoremap , <ESC>ggVG
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+nnoremap Y y$
+" search
+nnoremap * *N
+nnoremap <C-c> ^C
+"ccでも可能
+nnoremap sw <C-w>w
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap s= <C-w>=
+nnoremap ss :split<Return><C-w>w
+nnoremap sv :vsplit<Return><C-w>w
+nnoremap sm <Action>(MoveEditorToOppositeTabGroup)
+nnoremap <C-p> o<Esc>p
+"---------------plugin--------------
+set clipboard+=unnamed
+" 無駄な描画をしない
+set lazyredraw
+" 再描画の速度が速くなるらしいけど最近の端末では無意味との噂も..
+set ttyfast
+" 検索語をハイライト
+set hlsearch
+" コマンドのタイムラグをなくす
+set ttimeoutlen=1
+set incsearch
+" 検索文字列入力時に順次対象文字列にヒットさせる
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set ignorecase
+" 検索時に大文字を含んでいたら大/小を区別
+set visualbell
+" let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+set noerrorbells
+"-----------set---------------
+set smartcase
+set surround
+
+" MULTIカーソル
+set multiple-cursors
+map <C-m> <A-n>
+
+map mm <A-n>
+map mx <A-x>
+map mp <A-p>
+set commentary
+nnoremap // :action CommentByLineComment<CR>k
+vnoremap // :action CommentByLineComment<CR><Esc>
+
+" ハイフンも単語に含める
+set iskeyword+=-
+" 置換
+set ReplaceWithRegister
+map ; gr
+
+set argtextobj
+"vaaで引数を選択
+set highlightedyank
+set vim-indent-object
+set textobj-indent
+set highjightedyank
+set nocompatible
+
+set NERDTree
+nnoremap <C-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <C-e> :NERDTree<CR>
+"q	NERDTreeウィンドウを閉じる
+"o	ファイル、ディレクトリ、ブックマークを開く
+"s	選択したファイルを新しいvsplitで開く
+"p	ルートノードにジャンプする
+"m	NERDTreeのメニューを表示する(右クリックしたときと同じ)
+
+--------------------検討中--------------------
+" ウィンドウの右下にまだ実行していない入力中のコマンドを表示
+set showcmd
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+vnoremap x "_x
+"nnoremap s <Nop>
+
+
+--------------------便利--------------------
+
+" :'<,'>s/置換前/置換後/g
+"^Jでターミナルをtoggle

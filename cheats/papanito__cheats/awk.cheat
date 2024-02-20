@@ -1,0 +1,19 @@
+% awk
+
+# ファイルまたは標準入力から1行ごとに整数を読み取って合計する:
+printf '1\n2\n3\n' | awk '{ sum += $1} END {print sum}'
+
+# 特定の文字を区切り文字として指定して、ファイルまたは標準入力から整数を読み取って合計する:
+printf '1:2:3' | awk -F ":" '{print $1+$2+$3}'
+
+# 九九の表を表示する:
+seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'
+
+# 出力の区切り文字を指定する:
+printf '1 2 3' | awk 'BEGIN {OFS=":"}; {print $1,$2,$3}'
+
+# 特定の条件を満たす行のみでコマンドを実行する:
+printf "george jetson\nolive oyl\nbeetle bailey" | awk '$2=="bailey"{print $0}'
+
+# 正規表現を使用して一致する行のみでコマンドを実行する:
+printf "george jetson\nolive oyl\nbeetle bailey" | awk '/ley$/{print $0}'

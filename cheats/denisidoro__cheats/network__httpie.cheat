@@ -1,0 +1,28 @@
+% httpie, http
+
+# GETリクエストを送信する
+http <url>
+
+# 指定したメソッドでHTTPリクエストを送信する
+http <method> <url>
+
+# 認証付きのHTTPリクエストを送信する
+http -a <username>:<password> <method> <url>
+
+# JSONボディを持つHTTPリクエストを送信する
+http <method> <url> <bodykey>=<bodyvalue>
+
+# フォームボディを持つHTTPリクエストを送信する
+http -f POST <url> <bodykey>=<bodyvalue>
+
+# リクエストとレスポンスを表示するHTTPリクエストを送信する
+http -v <url>
+
+# ファイルからボディを読み込んでPOSTリクエストを送信する
+http <method> <url> < <file>
+
+# カスタムヘッダーを持つHTTPリクエストを送信する
+http <method> <url> <headername>:<headervalue>
+
+$ file: ls
+$ method: echo -e 'GET\nPOST\nPUT\nDELETE\nPATCH'

@@ -1,7 +1,7 @@
 local status, wezterm = pcall(require, "wezterm")
 if not status then
-	return
-end
+	return    
+end        
 
 local base_colors = {
 	dark = "#172331",
@@ -79,13 +79,13 @@ local keys = {
 return {
 	color_scheme = "Gruvbox Dark (Gogh)",
 	colors = colors,
-	window_background_opacity = 0.8,
+	window_background_opacity = 1,
 	tab_bar_at_bottom = false,
 	hide_tab_bar_if_only_one_tab = false,
 	leader = leader,
 	keys = keys,
 	font = wezterm.font("HackGen", { weight = "Regular", stretch = "Normal", style = "Normal" }),
-	font_size = 14.5,
+	font_size = 14,
 	line_height = 1,
 	use_ime = true, -- wezは日本人じゃないのでこれがないとIME動かない
 	window_padding = {

@@ -1,7 +1,10 @@
 let mapleader = "\<space>"
 
 "---------------action---------------
-
+nnoremap <Space>v :action PasteMultiple<CR>
+vnoremap <Space>v :action PasteMultiple<CR>
+nnoremap <Space>' :action Console.Jdbc.Execute<CR>
+vnoremap <Space>; :action ExtractMethod<CR>
 nnoremap <Space>; :action Run<CR>
 nnoremap <Space><CR> :action RenameElement<CR>
 nnoremap <Space>a :action RecentFiles<CR>
@@ -63,9 +66,7 @@ vnoremap <leader>b :action Vcs.RollbackChangedLines<CR>
 
 nnoremap <leader>p  :action GotoFile<CR>
 "---------------map---------------
-" コンマの後に自動的にスペースを挿入
-inoremap , ,<Space>
-inoremap <C-j> <ESC>
+inoremap jk <ESC>
 nnoremap I I<Space><ESC>i
 nnoremap U <C-r>
 nnoremap J 10j
@@ -95,9 +96,15 @@ nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap s= <C-w>=
-nnoremap ss :split<Return><C-w>w
+
+" nnoremap ss :split<Return><C-w>w
 nnoremap sv :vsplit<Return><C-w>w
-nnoremap sm <Action>(MoveEditorToOppositeTabGroup)
+nnoremap sv :vsplit<Return><C-w>w
+nnoremap ss :action MoveEditorToOppositeTabGroup<CR>
+nnoremap sm :action MaximizeEditorInSplit<CR>
+nnoremap sV :action MoveTabRight<CR>
+vnoremap sV :action MoveTabRight<CR>
+
 nnoremap <C-p> o<Esc>p
 "---------------plugin--------------
 set clipboard+=unnamed
@@ -164,7 +171,27 @@ vnoremap x "_x
 "nnoremap s <Nop>
 
 
+
 --------------------便利--------------------
 
 " :'<,'>s/置換前/置換後/g
 "^Jでターミナルをtoggle
+
+
+--マルチカーソルに対応
+nnoremap <leader>* *``cgn
+
+--osに対応
+inoremap <C-a> <HOME>
+inoremap <C-e> <END>
+inoremap <C-h> <BS>
+inoremap <C-d> <DEL>
+inoremap <C-k> <C-U>
+inoremap <C-u> <C-W>
+inoremap <C-w> <C-W>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-j> <CR>
+inoremap <C-m> <CR>
